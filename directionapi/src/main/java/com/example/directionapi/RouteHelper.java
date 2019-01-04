@@ -15,7 +15,6 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class RouteHelper {
     String lang;
     String Key;
 
-   public  List<LatLng> latLngs;
+   public List<LatLng> latLngs;
     static String LANGUAGE_SPANISH = "es";
     static String LANGUAGE_ENGLISH = "en";
     static String LANGUAGE_FRENCH = "fr";
@@ -44,13 +43,11 @@ public class RouteHelper {
     List<Polyline> polylines = new ArrayList<Polyline>();
 
 
-    public boolean drawRoute(GoogleMap map, Context c, ArrayList<LatLng> points, String language, boolean optimize) {
+    public boolean drawRoute(GoogleMap map, Context c, ArrayList<LatLng> points, String language, boolean optimize,String Keyy) {
         mMap = map;
         context = c;
         lang = language;
-       Key = context.getString(R.string.google_maps_key);
-//        Key="AIzaSyBO4CRQ0ntRe-JQa1ynjyC0Gchh5jSKH6Y";
-
+        Key = Keyy;
         if (points.size() == 2) {
 //            String url = makeURL(points.get(0).latitude, points.get(0).longitude, points.get(1).latitude, points.get(1).longitude, "driving");
           String url="https://maps.googleapis.com/maps/api/directions/json?origin="+points.get(0).latitude+","+points.get(0).longitude+"&destination="+points.get(1).latitude+","+points.get(1).longitude+"&sensor=true&mode=&key=AIzaSyBO4CRQ0ntRe-JQa1ynjyC0Gchh5jSKH6Y";
